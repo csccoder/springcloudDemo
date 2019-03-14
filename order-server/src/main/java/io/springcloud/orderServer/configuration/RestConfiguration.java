@@ -1,7 +1,7 @@
 package io.springcloud.orderServer.configuration;
 
 import com.netflix.loadbalancer.IRule;
-import com.netflix.loadbalancer.RandomRule;
+import com.netflix.loadbalancer.WeightedResponseTimeRule;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +17,6 @@ public class RestConfiguration {
 
     @Bean
     public IRule getRule(){
-        return new RandomRule();
+        return new WeightedResponseTimeRule();
     }
 }
